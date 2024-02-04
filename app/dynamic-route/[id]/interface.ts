@@ -1,3 +1,3 @@
 export interface DynamicRouteProps {
-    params: {id: string}
+    params: {id: string, nestedId?: string}
 }
