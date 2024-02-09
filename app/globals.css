@@ -26,6 +26,12 @@ body {
     rgb(var(--background-start-rgb));
 }
 
+@layer base {
+  h1 {
+    @apply p-2 text-xl font-semibold;
+  }
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
