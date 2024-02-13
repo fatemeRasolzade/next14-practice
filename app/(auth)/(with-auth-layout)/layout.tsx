@@ -1,10 +1,10 @@
 "use client";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 const navLinks = [
-  { name: "Register", href: "/register" },
   { name: "Login", href: "/login" },
+  { name: "Register", href: "/register" },
 ];
 
 export default function AuthLayout({
@@ -13,6 +13,15 @@ export default function AuthLayout({
   children: React.ReactNode;
 }>) {
   const pathname = usePathname();
+  const router = useRouter();
+
+  function handleBackToHomepage() {
+    router.push("/");
+  }
+
+  function handleBackToPerviousPage() {
+    router.back();
+  }
 
   return (
     <>
@@ -33,6 +42,20 @@ export default function AuthLayout({
               </Link>
             );
           })}
+        </div>
+        <div className="flex gap-2">
+          <p
+            className="text-white cursor-pointer"
+            onClick={handleBackToHomepage}
+          >
+            Back to homepage
+          </p>
+          <p
+            className="text-white cursor-pointer"
+            onClick={handleBackToPerviousPage}
+          >
+            Back to pervious page
+          </p>
         </div>
       </div>
       {children}
