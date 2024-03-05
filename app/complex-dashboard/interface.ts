@@ -5,4 +5,5 @@ export interface DashboardLayoutProps {
     users: ReactNode;
     revenue: ReactNode;
     notifications: ReactNode;
+    login: ReactNode;
 }
